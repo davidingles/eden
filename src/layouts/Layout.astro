@@ -1,6 +1,6 @@
 ---
 interface Props {
-	title: string
+	title?: string
 }
 
 const { title } = Astro.props
@@ -11,8 +11,8 @@ const { title } = Astro.props
 	<head>
 		<meta charset='UTF-8' />
 		<meta
-			name='description'
-			content='Astro description'
+			name='Auxiliar Manipuladora del Cartón'
+			content='Pagina sobre la fabrica y la historia de la empresa Auxiliar Manipuladora del Cartón'
 		/>
 		<meta
 			name='viewport'
@@ -21,7 +21,7 @@ const { title } = Astro.props
 		<link
 			rel='icon'
 			type='image/svg+xml'
-			href='/favicon.svg'
+			href='/favicon.auxi.svg'
 		/>
 		<meta
 			name='generator'
@@ -43,6 +43,9 @@ const { title } = Astro.props
 		--auxiliar2: rgb(0, 129, 74);
 		--marcado: rgb(rgb(0, 204, 255));
 	}
+	.tipo1 {
+		font-family: 'ITC Eras';
+	}
 	html {
 		background-color: #202020;
 		color: #f2f2f2;
@@ -51,18 +54,7 @@ const { title } = Astro.props
 		background-color: #202020;
 		color: #202020;
 	}
-	code {
-		font-family:
-			Menlo,
-			ITC Eras Demi,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+
 	.dil-barra-desplazamiento {
 		/* Estilos de la barra de desplazamiento */
 		scrollbar-width: thin; /* Ancho de la barra de desplazamiento */
