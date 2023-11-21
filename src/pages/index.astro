@@ -1,15 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import Header from '../components/Header.astro'
+import Main from '../components/Main.astro'
 ---
 
 <Layout title='Auxiliar Manipuladora del Cartón'>
-	<div class='dil text-[var(--auxiliar1)] text-3xl'>
-		Auxiliar Manipuladora del Cartón
-	</div>
+	<Header />
+	<Main class='main' />
 </Layout>
-
-<style>
-	.dil {
-		border: 1px solid red;
-	}
-</style>
