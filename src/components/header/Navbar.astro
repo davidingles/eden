@@ -1,0 +1,56 @@
+---
+interface Props {
+	nav?: string[]
+	link?: string[]
+}
+
+const { nav, link } = Astro.props
+---
+
+<div class='nav'>
+	{
+		nav.map((item, index) => {
+			return (
+				<div class='uno'>
+					<a
+						class='a'
+						href={link[index]}
+					>
+						{item}
+					</a>
+				</div>
+			)
+		})
+	}
+</div>
+
+<style>
+	.nav {
+		background-color: blue;
+		display: flex;
+		gap: 2rem;
+		padding: 1rem;
+		justify-content: center;
+		align-items: center;
+		font-family: 'CircularStd-bold', system-ui, sans-serif;
+		font-weight: 500;
+		font-size: 1.2rem;
+	}
+	.a:hover {
+		text-decoration: none;
+		animation-name: under;
+		animation-fill-mode: forwards;
+	}
+
+	@keyframes under {
+		0% {
+			text-decoration: none;
+		}
+		100% {
+			text-decoration: underline;
+			text-decoration-color: var(--auxiliar1);
+			text-underline-offset: 0.2rem;
+			text-decoration-thickness: 2px;
+		}
+	}
+</style>
