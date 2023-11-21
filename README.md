@@ -1,3 +1,11 @@
+//sizing de tailwindcss
+xs 320px
+sm 384px
+md 448px
+lg 512px
+xl 516px
+2xl 672px
+
 # Astro Starter Kit: Basics
 
 ```sh
