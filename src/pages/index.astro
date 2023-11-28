@@ -5,6 +5,22 @@ import Main from '../components/Main.astro'
 ---
 
 <Layout title='Auxiliar Manipuladora del Cartón'>
-	<Header />
-	<Main class='main' />
+	<main>
+		<div class='divHeader mb-2 mr-2'>
+			<Header />
+		</div>
+		<div class='divMain mr-2'>
+			<Main class='main' />
+		</div>
+	</main>
 </Layout>
+
+<style>
+	.divHeader {
+		border: 1px solid blue;
+	}
+	.divMain {
+		border-radius: 0.5rem;
+		border: 1px solid red;
+	}
+</style>

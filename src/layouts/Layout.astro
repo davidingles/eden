@@ -1,4 +1,6 @@
 ---
+import FooterMenu from '@/components/FooterMenu.astro'
+import AsideMenu from '@/components/AsideMenu.astro'
 import Main from '@/components/Main.astro'
 import Header from '@/components/header/Header.astro'
 import logo from '@/components/icons/favicon.auxi.svg'
@@ -32,23 +34,33 @@ const { title } = Astro.props
 		/>
 		<title>{title}</title>
 	</head>
-	<body class='min-w-full min-h-screen border-4 border-orange-400'>
+	<body class='min-w-full min-h-screen'>
 		<div id='app'>
-			<aside class='[grid-area:aside] flex-col flex overflow-y-auto'>
-				aside
-			</aside>
-			<main
-				class='[grid-area:main] rounded-lg bg-zinc-800 overflow-y-auto w-full'
+			<aside
+				class='asideMenu ml-2 bg-zinc-800 h-full rounded-lg mt-2 [grid-area:aside] flex-col flex overflow-y-auto'
 			>
-				main
+				<AsideMenu />
+				<div class='miClase border-miBorde'>PRUEBA</div>
+			</aside>
+
+			<!-- MAIN ================================================ -->
+			<main
+				class='mainMenu ml-2 mt-2 [grid-area:main] overflow-y-auto w-full bg-zinc-900 p-2 mr-8 min-h-full flex h-screen justify-center rounded-lg'
+			>
 				<slot />
 			</main>
-			<footer class='[grid-area:player] h-[80px]'>footer</footer>
+			<!-- ======================================================== -->
+
+			<footer
+				class='m-2 mr-4 w-full rounded-lg footerMenu bg-zinc-700 [grid-area:player] h-[80px]'
+			>
+				<FooterMenu />
+			</footer>
 		</div>
 		<style>
 			#app {
 				display: grid;
-				grid-template-area:
+				grid-template-areas:
 					'aside main main'
 					'player player player';
 				grid-template-columns: 350px 1fr;
@@ -62,14 +74,31 @@ const { title } = Astro.props
 				--marcado: rgb(rgb(0, 204, 255));
 			}
 			html {
-				background-color: #202020;
+				background-color: #000000;
 				color: #f2f2f2;
 				font-family: 'CircularStd', system-ui, sans-serif;
 			}
 			html.light {
-				background-color: #f2f2f2;
+				background-color: #ffffff;
 				color: #202020;
 			}
+			.light .asideMenu {
+				background-color: #b9b9b9;
+				color: #202020;
+			}
+			.light .mainMenu {
+				background-color: #ededed;
+				color: #202020;
+			}
+			.light .footerMenu {
+				background-color: #8f8f8f;
+				color: #202020;
+			}
+			.light .headerMenu {
+				background-color: #ffffff;
+				color: #202020;
+			}
+
 			@font-face {
 				font-family: 'ITC';
 				src: url('/tipos/ITC Eras Demi.ttf');
@@ -84,7 +113,7 @@ const { title } = Astro.props
 
 			@font-face {
 				font-family: 'CircularStd';
-				src: url('/fonts/CircularStd-Book.woff2') format('woff2');
+				src: url('/tipos/CircularStd-Book.woff2') format('woff2');
 				font-weight: 400;
 				font-style: normal;
 				font-display: swap;
@@ -92,7 +121,7 @@ const { title } = Astro.props
 
 			@font-face {
 				font-family: 'CircularStd';
-				src: url('/fonts/CircularStd-Light.woff2') format('woff2');
+				src: url('/tipos/CircularStd-Light.woff2') format('woff2');
 				font-weight: 300;
 				font-style: normal;
 				font-display: swap;
@@ -100,7 +129,7 @@ const { title } = Astro.props
 
 			@font-face {
 				font-family: 'CircularStd';
-				src: url('/fonts/CircularStd-Bold.woff2') format('woff2');
+				src: url('/tipos/CircularStd-Bold.woff2') format('woff2');
 				font-weight: 700;
 				font-style: normal;
 				font-display: swap;
@@ -108,7 +137,7 @@ const { title } = Astro.props
 
 			@font-face {
 				font-family: 'CircularStd';
-				src: url('/fonts/CircularStd-Black.woff2') format('woff2');
+				src: url('/tipos/CircularStd-Black.woff2') format('woff2');
 				font-weight: 900;
 				font-style: normal;
 				font-display: swap;
