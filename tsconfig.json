@@ -11,6 +11,24 @@
       "@/icons/*": [
         "src/icons/*"
       ],
+      "@/layouts/*": [
+        "src/layouts/*"
+      ],
+      "@/pages/*": [
+        "src/pages/*"
+      ],
+      "@/styles/*": [
+        "src/styles/*"
+      ],
+      "@/utils/*": [
+        "src/utils/*"
+      ],
+      "@/public/*": [
+        "public/*"
+      ],
+      "@/tipos/*": [
+        "public/tipos/*"
+      ]
     }
   },
   "extends": "astro/tsconfigs/base"

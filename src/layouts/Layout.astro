@@ -1,4 +1,7 @@
 ---
+import Main from '@/components/Main.astro'
+import Header from '@/components/header/Header.astro'
+import logo from '@/components/icons/favicon.auxi.svg'
 interface Props {
 	title?: string
 }
@@ -30,92 +33,113 @@ const { title } = Astro.props
 		<title>{title}</title>
 	</head>
 	<body class='min-w-full min-h-screen border-4 border-orange-400'>
-		<slot />
+		<div id='app'>
+			<aside class='[grid-area:aside] flex-col flex overflow-y-auto'>
+				aside
+			</aside>
+			<main
+				class='[grid-area:main] rounded-lg bg-zinc-800 overflow-y-auto w-full'
+			>
+				main
+				<slot />
+			</main>
+			<footer class='[grid-area:player] h-[80px]'>footer</footer>
+		</div>
+		<style>
+			#app {
+				display: grid;
+				grid-template-area:
+					'aside main main'
+					'player player player';
+				grid-template-columns: 350px 1fr;
+				grid-template-rows: 1fr auto;
+			}
+		</style>
+		<style is:global>
+			:root {
+				--auxiliar1: rgb(223, 172, 18);
+				--auxiliar2: rgb(0, 129, 74);
+				--marcado: rgb(rgb(0, 204, 255));
+			}
+			html {
+				background-color: #202020;
+				color: #f2f2f2;
+				font-family: 'CircularStd', system-ui, sans-serif;
+			}
+			html.light {
+				background-color: #f2f2f2;
+				color: #202020;
+			}
+			@font-face {
+				font-family: 'ITC';
+				src: url('/tipos/ITC Eras Demi.ttf');
+			}
+			@font-face {
+				font-family: 'CircularStd-bold';
+				src: url('/tipos/CircularStd-Medium.woff2') format('woff2');
+				font-weight: 500;
+				font-style: normal;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: 'CircularStd';
+				src: url('/fonts/CircularStd-Book.woff2') format('woff2');
+				font-weight: 400;
+				font-style: normal;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: 'CircularStd';
+				src: url('/fonts/CircularStd-Light.woff2') format('woff2');
+				font-weight: 300;
+				font-style: normal;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: 'CircularStd';
+				src: url('/fonts/CircularStd-Bold.woff2') format('woff2');
+				font-weight: 700;
+				font-style: normal;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: 'CircularStd';
+				src: url('/fonts/CircularStd-Black.woff2') format('woff2');
+				font-weight: 900;
+				font-style: normal;
+				font-display: swap;
+			}
+
+			.dil-barra-desplazamiento {
+				/* Estilos de la barra de desplazamiento */
+				scrollbar-width: thin; /* Ancho de la barra de desplazamiento */
+				scrollbar-color: #a92020 #0feb03; /* Color de la barra y el fondo de la barra */
+			}
+			/* Estilos para la barra de desplazamiento */
+			.dil-barra-desplazamiento::-webkit-scrollbar {
+				width: 12px; /* Ancho de la barra de desplazamiento */
+			}
+			.dil-barra-desplazamiento::-webkit-scrollbar-thumb {
+				background-color: var(
+					--auxiliar1
+				); /* Color de la barra de desplazamiento */
+			}
+			.dil-barra-desplazamiento::-webkit-scrollbar-track {
+				background-color: black;
+			}
+			.light .dil-barra-desplazamiento::-webkit-scrollbar-thumb {
+				background-color: var(
+					--auxiliar2
+				); /* Color de la barra de desplazamiento */
+			}
+
+			.light .dil-barra-desplazamiento::-webkit-scrollbar-track {
+				background-color: white;
+			}
+		</style>
 	</body>
 </html>
-<style is:global>
-	:root {
-		--auxiliar1: rgb(223, 172, 18);
-		--auxiliar2: rgb(0, 129, 74);
-		--marcado: rgb(rgb(0, 204, 255));
-	}
-	html {
-		background-color: #202020;
-		color: #f2f2f2;
-		font-family: 'CircularStd', system-ui, sans-serif;
-	}
-	html.light {
-		background-color: #f2f2f2;
-		color: #202020;
-	}
-	@font-face {
-		font-family: 'ITC';
-		src: url('/tipos/ITC Eras Demi.ttf');
-	}
-	@font-face {
-		font-family: 'CircularStd-bold';
-		src: url('/tipos/CircularStd-Medium.woff2') format('woff2');
-		font-weight: 500;
-		font-style: normal;
-		font-display: swap;
-	}
-
-	@font-face {
-		font-family: 'CircularStd';
-		src: url('/fonts/CircularStd-Book.woff2') format('woff2');
-		font-weight: 400;
-		font-style: normal;
-		font-display: swap;
-	}
-
-	@font-face {
-		font-family: 'CircularStd';
-		src: url('/fonts/CircularStd-Light.woff2') format('woff2');
-		font-weight: 300;
-		font-style: normal;
-		font-display: swap;
-	}
-
-	@font-face {
-		font-family: 'CircularStd';
-		src: url('/fonts/CircularStd-Bold.woff2') format('woff2');
-		font-weight: 700;
-		font-style: normal;
-		font-display: swap;
-	}
-
-	@font-face {
-		font-family: 'CircularStd';
-		src: url('/fonts/CircularStd-Black.woff2') format('woff2');
-		font-weight: 900;
-		font-style: normal;
-		font-display: swap;
-	}
-
-	.dil-barra-desplazamiento {
-		/* Estilos de la barra de desplazamiento */
-		scrollbar-width: thin; /* Ancho de la barra de desplazamiento */
-		scrollbar-color: #a92020 #0feb03; /* Color de la barra y el fondo de la barra */
-	}
-	/* Estilos para la barra de desplazamiento */
-	.dil-barra-desplazamiento::-webkit-scrollbar {
-		width: 12px; /* Ancho de la barra de desplazamiento */
-	}
-	.dil-barra-desplazamiento::-webkit-scrollbar-thumb {
-		background-color: var(
-			--auxiliar1
-		); /* Color de la barra de desplazamiento */
-	}
-	.dil-barra-desplazamiento::-webkit-scrollbar-track {
-		background-color: black;
-	}
-	.light .dil-barra-desplazamiento::-webkit-scrollbar-thumb {
-		background-color: var(
-			--auxiliar2
-		); /* Color de la barra de desplazamiento */
-	}
-
-	.light .dil-barra-desplazamiento::-webkit-scrollbar-track {
-		background-color: white;
-	}
-</style>

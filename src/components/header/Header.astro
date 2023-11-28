@@ -1,20 +1,22 @@
 ---
 import SliderToggleTheme from '../SliderToggleTheme.astro'
 import Navbar from './Navbar.astro'
+import Torres from '@/components/icons/Torres.astro'
 const nav = ['Inicio', 'Quiénes somos', 'Contacto', 'Catálogo']
 const link = ['/', '/#nave', '/#contacto', '/catalogo']
 ---
 
-<header>
-	<div class='container'>
-		<div class='opciones-de-menu'>
-			<Navbar
-				nav={nav}
-				link={link}
-			/>
-		</div>
-		<SliderToggleTheme />
+<header class='container'>
+	<div class='w-[222px] flex flex-col justify-center px-4'>
+		<Torres />
 	</div>
+	<div class='opciones-de-menu flex flex-1'>
+		<Navbar
+			nav={nav}
+			link={link}
+		/>
+	</div>
+	<SliderToggleTheme />
 </header>
 
 <style>
@@ -26,7 +28,7 @@ const link = ['/', '/#nave', '/#contacto', '/catalogo']
 		min-width: 100%;
 	}
 	.opciones-de-menu {
-		background-color: brown;
+		/* background-color: brown; */
 		display: flex;
 		flex: 1;
 		justify-content: center;
